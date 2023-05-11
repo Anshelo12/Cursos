@@ -1,6 +1,8 @@
 import { Student } from "./entities/student"
 import { Teacher } from "./entities/teacher"
-import { Course } from "./entities/course"
+//import { Course } from "./entities/course"
+import { Activity } from "./entities/activity"
+import { GradesBook } from "./entities/grades-book"
 
 //Student
 let student:Student[] = [];
@@ -43,16 +45,67 @@ console.table(teacher);
 //Course
 let course:Course[] = [];
 
-function addCourse(){
-    let currentCourse:Course = {
-        area:readHtml("areaCourse"),
-        name:readHtml("nameCourse")
+enum Course{
+    typeScript = "TypeScript",
+    php = "PHP",
+    angular = "Angular"
+}
+
+enum Area{
+    programacion = "Programacion",
+    diseño = "Diseño",
+    redes = "Redes"
+}
+
+// function addCourse(){
+//     let currentCourse:Course = {
+//         area:readHtml("areaCourse"),
+//         name:readHtml("nameCourse"),
+//     }
+// course.push(currentCourse);
+// console.table(course);
+// }
+
+//Activity
+let activity:Activity[] = [];
+
+function addActivity(){
+    let currentActivity: Activity = {
+    name: readHtml("nameActivity")
     }
-course.push(currentCourse);
-console.table(course);
+activity.push(currentActivity);
+console.table(activity);
+}
+
+//Grades-Book
+let gradesBook:GradesBook[] = [];
+
+function addGradesBook(){
+    let currentGradesBook:GradesBook = {
+        course:readHtml("courseGradesBook"),
+        activity:readHtml("activityGradesBook"),
+        weight:parseInt(readHtml("weightGradesBook")),
+        noteMax:parseInt(readHtml("noteMaxGradesBook"))
+    }
+gradesBook.push(currentGradesBook);
+console.table(gradesBook);
 }
 
 //Funcion para leer el HTML
 function readHtml(id:string):string{
     return(<HTMLInputElement>document.getElementById(id)).value
+}
+//Funcion para agregar un dato a otro campo
+function readCourse(): void {
+    let courseGradesBook = document.getElementById("courseGradesBook") as HTMLSelectElement;
+    //document.querySelectorAll('#courseGradesBook option').forEach(option => option.remove());
+
+    let courses = Object.values(Course); //enum comvertido en un arreglo
+    courses.forEach((value) => {         
+        let option = document.createElement("option"); 
+        option.value = value;
+        option.text = value;
+        courseGradesBook.add(option);
+    });
+
 }

@@ -36,15 +36,60 @@ function addTeacher() {
 }
 //Course
 let course = [];
-function addCourse() {
-    let currentCourse = {
-        area: readHtml("areaCourse"),
-        name: readHtml("nameCourse")
+var Course;
+(function (Course) {
+    Course["typeScript"] = "TypeScript";
+    Course["php"] = "PHP";
+    Course["angular"] = "Angular";
+})(Course || (Course = {}));
+var Area;
+(function (Area) {
+    Area["programacion"] = "Programacion";
+    Area["dise\u00F1o"] = "Dise\u00F1o";
+    Area["redes"] = "Redes";
+})(Area || (Area = {}));
+// function addCourse(){
+//     let currentCourse:Course = {
+//         area:readHtml("areaCourse"),
+//         name:readHtml("nameCourse"),
+//     }
+// course.push(currentCourse);
+// console.table(course);
+// }
+//Activity
+let activity = [];
+function addActivity() {
+    let currentActivity = {
+        name: readHtml("nameActivity")
     };
-    course.push(currentCourse);
-    console.table(course);
+    activity.push(currentActivity);
+    console.table(activity);
+}
+//Grades-Book
+let gradesBook = [];
+function addGradesBook() {
+    let currentGradesBook = {
+        course: readHtml("courseGradesBook"),
+        activity: readHtml("activityGradesBook"),
+        weight: parseInt(readHtml("weightGradesBook")),
+        noteMax: parseInt(readHtml("noteMaxGradesBook"))
+    };
+    gradesBook.push(currentGradesBook);
+    console.table(gradesBook);
 }
 //Funcion para leer el HTML
 function readHtml(id) {
     return document.getElementById(id).value;
+}
+//Funcion para agregar un dato a otro campo
+function readCourse() {
+    let courseGradesBook = document.getElementById("courseGradesBook");
+    //document.querySelectorAll('#courseGradesBook option').forEach(option => option.remove());
+    let courses = Object.values(Course); //enum comvertido en un arreglo
+    courses.forEach((value) => {
+        let option = document.createElement("option");
+        option.value = value;
+        option.text = value;
+        courseGradesBook.add(option);
+    });
 }

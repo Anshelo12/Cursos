@@ -22,6 +22,7 @@
         <center>
             <h1>FORMULARIO DE INGRESO DE DATOS</h1>
         </center>
+        <!-- Student -->
         <div class="card">
             <div class="card-header">
                 <h2>ESTUDIANTE</h2>
@@ -53,6 +54,7 @@
             </div>
         </div>
         <hr>
+        <!-- Teacher -->
         <div class="card">
             <div class="card-header">
                 <h2>PROFESOR</h2>
@@ -97,22 +99,73 @@
             </div>
         </div>
         <hr>
-        <div class="card">
+        <!-- Courses -->
+        <!-- <div class="card">
           <div class="card-header">
               <h2>CURSOS</h2>
           </div>
+          <div class="card-body">
               <div class="mb-3">
                   <label for="areaCourse" class="form-label">Area:</label>
-                  <input type="text" name="areaCourse" id="areaCourse" class="form-control" placeholder="Area" aria-describedby="helpId">
+                  <select name="areaCourse" id="areaCourse">
+                    <option value="programacion">Programacion</option>
+                    <option value="diseño">Diseño</option>
+                    <option value="redes">Redes</option>
+                  </select>
               </div>
               <div class="mb-3">
                   <label for="nameCourse" class="form-label">Nombre del curso:</label>
                   <input type="text" name="nameCourse" id="nameCourse" class="form-control" placeholder="Curso" aria-describedby="helpId">
               </div>
-          </div>
+          </div>    
           <div class="card-footer text-muted">
               <button class="btn btn-primary" onclick="addCourse()">Agregar</button>
           </div>
+        </div> -->
+        <hr>
+        <!-- Activity -->
+        <div class="card">
+          <div class="card-header">
+              <h2>ACTIVIDADES</h2>
+          </div>
+          <div class="card-body">
+              <div class="mb-3">
+                  <label for="nameActivity" class="form-label">Actividad:</label>
+                  <input type="text" name="nameActivity" id="nameActivity" class="form-control" placeholder="Curso" aria-describedby="helpId">
+              </div>
+          </div>    
+          <div class="card-footer text-muted">
+              <button class="btn btn-primary" onclick="addActivity()">Agregar</button>
+          </div>
+        </div>
+        <hr>
+        <!-- Grades-book -->
+        <div class="card">
+          <div class="card-header">
+              <h2>LIBRO DE CALIFICACIONES</h2>
+          </div>
+          <div class="card-body">
+              <div class="mb-3">
+                  <label for="courseGradesBook" class="form-label">Curso:</label>
+                  <select name="courseGradesBook" id="courseGradesBook"></select>
+              </div>
+              <div class="mb-3">
+                <label for="activityGradesBook" class="form-label">Actividad:</label>
+                <select name="activityGradesBook" id="activityGradesBook"></select>
+              </div>
+              <div class="mb-3">
+                <label for="weightGradesBook" class="form-label">Peso %:</label>
+                <input type="number" name="weightGradesBook" id="weightGradesBook" class="form-control" placeholder="10 %" aria-describedby="helpId">
+              </div>
+              <div class="mb-3">
+                <label for="noteMaxGradesBook" class="form-label">Nota Maxima:</label>
+                <input type="number" name="noteMaxGradesBook" id="noteMaxGradesBook" class="form-control" placeholder="100" aria-describedby="helpId">
+              </div>
+          </div>
+          <div class="card-footer text-muted">
+              <button class="btn btn-primary" onclick="addGradesBook()">Agregar</button>
+          </div>
+        </div>
       </div>
     </div>
     <script>let exports={};</script>
